@@ -5,7 +5,7 @@ const Bcrypt = {
         return bcrypt.hashSync(input, 10)
     },
     Compare : (input, hash) => {
-        return bcrypt.compareSync(input, hashed)
+        return bcrypt.compareSync(input, hash)
     }
 }
 

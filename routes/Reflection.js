@@ -1,8 +1,10 @@
 const router = require("express").Router()
-
+const midlewareUsers = require('../midleware/authentication')
 //contoh penggunaan route 
-//router.post('/register', users.register);
-router.post('/api/v1/reflections')
-router.get('/api/v1/reflections')
-router.put('/api/v1/reflections/:id')
-router.delete('/api/v1/reflections/:id')
+
+router.post('/api/v1/reflections', midlewareUsers)
+router.get('/api/v1/reflections', midlewareUsers)
+router.put('/api/v1/reflections/:id', midlewareUsers)
+router.delete('/api/v1/reflections/:id', midlewareUsers)
+
+module.exports = router

@@ -1,36 +1,22 @@
-
-const Pool = require('pg').Pool
-
-const pool = new Pool({
-    host : 'localhost',
-    user : 'postgres',
-    database : 'final-project-1',
-    password : '12345678',
-    port : 5432,
-});
-
+const pool = require('../config/config')
 const execute = async (query) => {
    await pool.query(query).catch(console.log)
-   console.log("Table user created")
-   console.log("Table refelections created")
 }
 
 const createTableUser = `CREATE TABLE "users" (
-    "id" SERIAL,
-    "email" VARCHAR(100) NOT NULL,
-    "password" VARCHAR(100) NOT NULL,
-    PRIMARY KEY ("id")
+    "id" SERIAL PRIMARY KEY,
+    "email" VARCHAR(100) UNIQUE NOT NULL,
+    "password" VARCHAR(100) NOT NULL
 );`;
 
 const createTableRefletions = `CREATE TABLE "reflections" (
-    "id" SERIAL,
+    "id" SERIAL PRIMARY KEY,
     "success" VARCHAR(100) NOT NULL,
     "low_point" VARCHAR(100) NOT NULL,
     "take_away" VARCHAR(100) NOT NULL,
-    "owner_id" INTEGER,
-    "created_date" VARCHAR(100) NOT NULL,
-    "modified_date" VARCHAR(100) NOT NULL,
-    PRIMARY KEY ("id"),
+    "owner_id" INTEGER NOT NULL,
+    "created_date" TIMESTAMP NOT NULL,
+    "modified_date" TIMESTAMP NOT NULL,
     FOREIGN KEY ("owner_id") REFERENCES "users" ("id")
 );`;
 
