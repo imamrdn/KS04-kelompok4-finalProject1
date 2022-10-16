@@ -1,17 +1,18 @@
-const {verifyToken} = require('../helper/jwt');
+
+const jwt = require('jsonwebtoken');
+const repositoryUsers = require('../repository/users')
 
 function verify(req, res, next) {
-	const authHeader = req.headers.x-access-token;
+	const authHeader = req.get("x-access-token")
 	if (authHeader) {
-		if(jwt.verifyToken(authHeader)){
-            const {id, email} = verifyToken(authHeader)
-            req.user = {id, email}
-            next()
-        } else {
-            return res.status(403).json("Token is not valid!");
-        }
+        jwt.verify(authHeader, process.env.JWT_SECRET, (err, users) => {
+			if (err) return res.status(403).json("Token is not valid!")
+            req.user = users
+            if(!repositoryUsers.selectByEmail(users.email)) return res.status(403).json("Token is not valid!")
+			next()
+		});
 	} else {
-		return res.status(401).json("You are not authenticated");
+		return res.status(401).json("You are not authenticated")
 	}
 }
-module.exports = verify;
+module.exports = {verify};

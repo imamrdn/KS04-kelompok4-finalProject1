@@ -8,10 +8,10 @@ const repositoryUsers = {
         return query.rows[0]
     },
     register : async (email, password) => {
-        let query = await pool.query(`INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id`, [email, password])
+        let query = await pool.query(`INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *`, [email, password])
         .catch(console.log)
         if(!query) return false
-        return true
+        return query.rows[0]
     }
 }
 module.exports = repositoryUsers
