@@ -9,12 +9,16 @@ const controllerReflections = {
         return res.status(201).json(dataReflections)
     },
     updateReflections : async (req, res) => {
-        repositoryReflections.update({}, req.params.id, req.user.id)
-    },
-    selectByIdReflections : async (req, res) => {
-
+        let dataReflections =  await repositoryReflections.update(req.body, req.params.id, req.user.id)
+        console.log(dataReflections)
+         if(!dataReflections) {
+            return res.status(400).json("create data reflections failed")
+        }
+        return res.status(201).json(dataReflections)
     },
     selectAllReflections : async (req, res) => {
+        let dataReflections = await repositoryReflections.selectAll(req.user.id)
+        return res.status(200).json(dataReflections)
 
     },
     deleteReflections : async (req, res) => {
