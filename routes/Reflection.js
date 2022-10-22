@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const {verify} = require('../middlewares/authentication')
-const controllerReflections = require('../controllers/ReflectionController')
+const ReflectionController = require('../controllers/ReflectionController')
 //contoh penggunaan route 
 router.use(verify)
 router.post('/reflections', ReflectionController.createReflections)
