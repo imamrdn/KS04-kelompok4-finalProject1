@@ -1,6 +1,6 @@
 const repositoryReflections = require('../repository/reflections')
 
-const controllerReflections = {
+const ReflectionController = {
     createReflections : async (req, res) => {
         let dataReflections = await repositoryReflections.create(req.body, req.user.id)
          if(!dataReflections) {
@@ -31,4 +31,4 @@ const controllerReflections = {
 
 }
 
-module.exports = controllerReflections
+module.exports = ReflectionController;

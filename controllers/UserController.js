@@ -1,8 +1,8 @@
-const bcrypt = require('../helper/bcrypt')
-const {createToken} = require('../helper/jwt')
+const bcrypt = require('../helpers/bcrypt')
+const {createToken} = require('../helpers/jwt')
 const userRepository = require('../repository/users')
 
-const controllerUser = {
+const UserController = {
     register : async (req, res) => {
         const {email, password} = req.body
         let register = await userRepository.register(email, bcrypt.Hash(password))
@@ -32,4 +32,4 @@ const controllerUser = {
     }
 }
 
-module.exports = controllerUser
+module.exports = UserController

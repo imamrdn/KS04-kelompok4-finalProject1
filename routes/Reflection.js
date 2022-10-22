@@ -1,11 +1,11 @@
 const router = require("express").Router()
-const {verify} = require('../midleware/authentication')
-const controllerReflections = require('../controller/controllerReflections')
+const {verify} = require('../middlewares/authentication')
+const controllerReflections = require('../controllers/ReflectionController')
 //contoh penggunaan route 
 router.use(verify)
-router.post('/reflections', controllerReflections.createReflections)
-router.get('/reflections', controllerReflections.selectAllReflections)
-router.put('/reflections/:id', controllerReflections.updateReflections)
-router.delete('/reflections/:id', controllerReflections.deleteReflections)
+router.post('/reflections', ReflectionController.createReflections)
+router.get('/reflections', ReflectionController.selectAllReflections)
+router.put('/reflections/:id', ReflectionController.updateReflections)
+router.delete('/reflections/:id', ReflectionController.deleteReflections)
 
 module.exports = router
