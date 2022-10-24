@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepareDb":"node migrations/createDatabase.js && node migrations/createTable.js ",
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "db:migrate" : "node ./migrations/createTable.js"
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
