@@ -1,7 +1,7 @@
 {
-    "host":"",
-    "user":"",
-    "database":"",
-    "password":"",
-    "port":""
+    "host":"localhost",
+    "user":"postgres",
+    "database":"final_project_1",
+    "password":"root",
+    "port":"5432"
 }

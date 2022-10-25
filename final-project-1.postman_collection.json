@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "74e5588e-7c67-474e-9ed9-63620486c8af",
+		"_postman_id": "7ee7a7c2-7f26-463f-9325-f5c376c7829c",
 		"name": "final-project-1",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23408279"
 	},
 	"item": [
 		{
@@ -20,7 +21,7 @@
 							},
 							{
 								"key": "x-access-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzd2FyMTlAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTY3OCIsImlhdCI6MTY2NTkwODE1MX0.nifD0yjkoNd9lAaWp1wGkkeenXfr3fbt42d0ZXmwrno",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjcwMjk1NywiZXhwIjoxNjY2NzA2NTU3fQ.9COF7A1BFOEu2t2BdqJ9PdIa8TiXacVckQRKhoMzKMs",
 								"type": "text"
 							}
 						],
@@ -47,27 +48,99 @@
 				{
 					"name": "update",
 					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjcwMjk1NywiZXhwIjoxNjY2NzA2NTU3fQ.9COF7A1BFOEu2t2BdqJ9PdIa8TiXacVckQRKhoMzKMs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"success\" : \"xxxxxxx\",\n    \"low_point\" : \"takwweg\",\n    \"take_away\" : \"fghj\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflections/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflections",
+								"9"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": null
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjcwMjk1NywiZXhwIjoxNjY2NzA2NTU3fQ.9COF7A1BFOEu2t2BdqJ9PdIa8TiXacVckQRKhoMzKMs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflections"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "delete",
 					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjcwMjk1NywiZXhwIjoxNjY2NzA2NTU3fQ.9COF7A1BFOEu2t2BdqJ9PdIa8TiXacVckQRKhoMzKMs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflections/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflections",
+								"9"
+							]
+						}
 					},
 					"response": []
 				}
@@ -80,7 +153,54 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\" : \"aswar19@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+					"raw": "{\r\n    \"email\" : \"imam@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImVtYWlsIjoibWltYW1AbWFpbC5jb20iLCJpYXQiOjE2NjU5MDc1ODJ9.l1Pp3ObhjPDQNHRIC7-kW3l3orTkEdpC9x_XEWVV_GU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjQxMTAzMywiZXhwIjoxNjY2NDE0NjMzfQ.6e1qzz5xdy3cA1_8d_aZm33qRUm5-u2zY1gP7O21B8Q",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltYW1AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY2NjQxMTAzMywiZXhwIjoxNjY2NDE0NjMzfQ.6e1qzz5xdy3cA1_8d_aZm33qRUm5-u2zY1gP7O21B8Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"imam@gmail.com\",\n    \"password\" : \"password\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -101,15 +221,6 @@
 						"login"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "login",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
 			},
 			"response": []
 		}
