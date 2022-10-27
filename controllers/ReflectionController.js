@@ -4,7 +4,7 @@ const ReflectionController = {
     createReflections : async (req, res) => {
         let dataReflections = await repositoryReflections.create(req.body, req.user.id)
          if(!dataReflections) {
-            return res.status(400).json("Failed to create a new reflection")
+            return res.status(403).json({message : "Failed to create a new reflection"})
         }
         return res.status(201).json(dataReflections)
     },
@@ -12,7 +12,7 @@ const ReflectionController = {
         let dataReflections =  await repositoryReflections.update(req.body, req.params.id, req.user.id)
         console.log(dataReflections)
          if(!dataReflections) {
-            return res.status(400).json("Failed to update a reflection")
+            return res.status(403).json({message : "Failed to update a reflection"})
         }
         return res.status(202).json(dataReflections)
     },
@@ -24,9 +24,9 @@ const ReflectionController = {
     deleteReflections : async (req, res) => {
         let dataReflections = await repositoryReflections.delete(req.params.id, req.user.id)
         if(!dataReflections) {
-            return res.status(401).json("Failed to delete a reflection")
+            return res.status(403).json({message : "Failed to delete a reflection"})
         }
-        return res.status(202).json("Successfully delete reflection") 
+        return res.status(202).json({message : "Successfully delete reflection"}) 
     },
 
 }

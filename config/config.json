@@ -2,6 +2,6 @@
     "host":"localhost",
     "user":"postgres",
     "database":"final_project_1",
-    "password":"root",
+    "password":"12345678",
     "port":"5432"
 }
